@@ -1,38 +1,64 @@
-.App {
-  text-align: center;
+
+body{
+  background: rgb(25, 27, 27);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.stopWatch{
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.watch{
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 20px;
+  padding: 100px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.watch .time{
+  width: 200px;
+  aspect-ratio: 1/1;
+  background: black;
+  border-radius: 5%;
+  font-size: 8rem;
+  text-align: center;
+}
+
+.watch .colon{
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: black;
+  margin-top: 70px;
+  border-radius: 5%;
+}
+
+.stopWatch .buttons{
+  display: flex;
+  gap: 60px;
+}
+
+.stopWatch .buttons button{
+  width: 100px;
+  aspect-ratio: 3/1;
+  /*background-color: rgb(23, 23, 23);
+    color: white; */
+  /* pointer-events: none; */
+  /* box-shadow:  1px 1px black */
+}
+
+.lapItem{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+  background: rgb(50, 50, 50);
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-top: 30px;
 }
