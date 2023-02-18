@@ -7,6 +7,7 @@ const StopWatch = () =>{
     const [min, setMin] = useState(0);
     const [hour, setHour] = useState(0);
     const [component, setComponent] = useState([]);
+    let [disableState, setDisableState] = useState(false);
 
     const intervalMilliSec = useRef();
     const intervalSec = useRef();
@@ -14,6 +15,7 @@ const StopWatch = () =>{
     const intervalHour = useRef();
 
     const startClock = () => {
+        setDisableState(!disableState);
         intervalMilliSec.current = setInterval(()=>{
             setMilliSec((prevValue) => {
                 (prevValue>=99) ? prevValue = 0:  prevValue++;
@@ -48,6 +50,7 @@ const StopWatch = () =>{
         clearInterval(intervalSec.current);
         clearInterval(intervalMin.current);
         clearInterval(intervalHour.current);
+        setDisableState(!disableState);
     }
 
     const resetClock = () => {
@@ -60,6 +63,7 @@ const StopWatch = () =>{
         setSec(0);
         setMilliSec(0);
         setComponent([]);
+        setDisableState(!disableState);
     }
 
     const noteLap = () => {
@@ -80,7 +84,7 @@ const StopWatch = () =>{
                 <div className="time mil-sec">{ hour }</div>
             </div>
             <div className="buttons">
-                <button onClick={ startClock }>Start</button>
+                <button onClick={ startClock } disabled={disableState}>Start</button>
                 <button onClick={ noteLap }>Lap</button>
                 <button onClick={ stopClock }>Stop</button>
                 <button onClick={ resetClock }>Reset</button>
